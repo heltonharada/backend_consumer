@@ -15,11 +15,12 @@ import { ConfigModule } from '@nestjs/config';
       redis: {
         host: process.env.REDIS_HOST,
         port: parseInt(process.env.REDIS_PORT),
+        password: process.env.REDIS_PASSWORD,
       },
     }),
     MongooseModule.forRoot(process.env.MONGO_DSN, {
       useNewUrlParser: true,
-    }),
+    }),    
     ScheduleModule.forRoot(),
     TweetsModule,
     MailListModule,
